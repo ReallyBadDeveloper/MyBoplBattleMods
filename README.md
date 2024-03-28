@@ -6,3 +6,4 @@ These are all of the mods I have made and released in order.
 1. [Speed Modifier](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/speedmodifier1.1.0)
 2. [4x Jump](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/4xjump1.0.0)
 3. [Almighty Push](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/almightypush1.0.0)
+4. [Platform Zoom](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/platformzoom1.0.0)
