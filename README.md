@@ -1,5 +1,6 @@
 # My Bopl Battle Mods
 ![GitHub all releases](https://img.shields.io/github/downloads/ReallyBadDeveloper/MyBoplBattleMods/total?logo=github)
+![GitHub Release](https://img.shields.io/github/v/release/ReallyBadDeveloper/MyBoplBattleMods?style=plastic&label=latest%20release)
 
 These are all my mods for Bopl Battle. Most of these can be accessed on the [official Discord server](https://discord.gg/official-bopl-battle-modding-comunity-1175164882388275310).
 
