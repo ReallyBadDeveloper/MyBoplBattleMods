@@ -1,19 +1,19 @@
-﻿using BepInEx;
+using BepInEx;
 using HarmonyLib;
 using BoplFixedMath;
 using UnityEngine.InputSystem;
 
 namespace InfiniteEngine
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin("com.ReallyBadDev.WonkyEngine", "WonkyEngine", "1.0.0")]
     public class Plugin : BaseUnityPlugin
     {
         private void Awake()
         {
             // Plugin startup logic
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Logger.LogInfo($"Plugin {"com.ReallyBadDev.WonkyEngine"} is loaded!");
 
-            Harmony harmony = new(PluginInfo.PLUGIN_GUID);
+            Harmony harmony = new("com.ReallyBadDev.WonkyEngine");
             
             harmony.PatchAll(typeof(Patches));
         }
@@ -27,10 +27,11 @@ namespace InfiniteEngine
             ___isEngineOn = true;
             ___timeSinceEngineStarted = (Fix)1L;
             __instance.radius = (Fix)9L;
-            
+            var prop = AccessTools.Property(typeof(RocketEngine), nameof(RocketEngine.LocalPlatformPosition));
+            prop.SetValue(__instance, __instance.LocalPlatformPosition + (Fix).01);
             for (int i = 0; i < __instance.ForceAnim.keys.Length; i++)
             {
-                __instance.ForceAnim.keys[i].value = (Fix)(-50L);
+                __instance.ForceAnim.keys[i].value = (Fix)(-200L);
             }
         }
     }
