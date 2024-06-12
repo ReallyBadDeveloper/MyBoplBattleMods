@@ -14,3 +14,5 @@ These are all of the mods I have made and released in order.
 5. [Screw Jumping](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/platformzoom1.0.0)
 6. [Beeg Bopl](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/beegbopl1.0.0)
 7. [Slippery Arrow](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/slipperyarrow1.0.0)
+8. [Wonky Engine](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/wonkyengine1.0.0)
+9. [Custom Colors](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/customcolors1.0.0)
