@@ -1,9 +1,6 @@
-﻿using BepInEx;
-using BepInEx.Configuration;
+using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using UnityEngine;
 
@@ -14,29 +11,67 @@ namespace CustomColors
 
     public class Plugin : BaseUnityPlugin
     {
+        internal static float red = 255f;
+        internal static float green = 255f;
+        internal static float blue = 255f;
+        internal static int localPlayerId = 1;
+        internal static bool customColorsWindow = true;
         private static ManualLogSource logger;
-        internal static ConfigEntry<float> boplRed;
-        internal static ConfigEntry<float> boplGreen;
-        internal static ConfigEntry<float> boplBlue;
-        internal static ConfigEntry<float> boplAlpha;
         private void Awake()
         {
             logger = base.Logger;
             Logger.LogInfo("Plugin CustomColors is loaded!");
             Harmony harmony = new("com.rbdev.CustomColors");
-
-            if (!File.Exists("/BepInEx/config/com.rbdev.CustomColors.cfg"))
-            {
-                boplRed = Config.Bind("General.Color", "Red", 255f, "The red value of the Bopl.");
-                boplGreen = Config.Bind("General.Color", "Green", 255f, "The green value of the Bopl.");
-                boplBlue = Config.Bind("General.Color", "Blue", 255f, "The blue value of the Bopl.");
-
-                Logger.LogInfo("Bound new config file because existing config could not be found");
-            }
             harmony.PatchAll(typeof(Patches));
             Plugin.InfoLog("Log test, ignore");
             Plugin.WarnLog("Warning test, ignore");
             Plugin.ErrorLog("Error test, ignore");
+        }
+        void CustomColorsWindow(int windowID)
+        {
+            GUI.color = new UnityEngine.Color(red / 255, 0f, 0f);
+            red = GUI.HorizontalSlider(new Rect(10, 20, 150, 30), red, 0.0f, 255.0f);
+            GUI.color = new UnityEngine.Color(0f, green / 255, 0f);
+            green = GUI.HorizontalSlider(new Rect(10, 45, 150, 30), green, 0.0f, 255.0f);
+            GUI.color = new UnityEngine.Color(0f, 0f, blue / 255);
+            blue = GUI.HorizontalSlider(new Rect(10, 70, 150, 30), blue, 0.0f, 255.0f);
+
+            GUI.color = new UnityEngine.Color(red / 255, 0f, 0f);
+            red = float.Parse(GUI.TextField(new Rect(200, 20, 50, 20), red.ToString(), 5));
+            GUI.color = new UnityEngine.Color(0f, green / 255, 0f);
+            green = float.Parse(GUI.TextField(new Rect(200, 45, 50, 20), green.ToString(), 5));
+            GUI.color = new UnityEngine.Color(0f, 0f, blue / 255);
+            blue = float.Parse(GUI.TextField(new Rect(200, 70, 50, 20), blue.ToString(), 5));
+
+            GUI.color = new UnityEngine.Color(red / 255, 0f, 0f);
+            GUI.Label(new Rect(255, 20, 50, 20), "███████");
+            GUI.color = new UnityEngine.Color(0f, green / 255, 0f);
+            GUI.Label(new Rect(255, 45, 50, 20), "███████");
+            GUI.color = new UnityEngine.Color(0f, 0f, blue / 255);
+            GUI.Label(new Rect(255, 70, 50, 20), "███████");
+            GUI.color = new UnityEngine.Color(red / 255, green / 255, blue / 255);
+            GUI.Label(new Rect(25, 95, 200, 20), "███████████████████████████████████");
+            GUI.DragWindow();
+        }
+        private void OnGUI() 
+        {
+            GUI.color = Color.yellow;
+            if (GUI.Button(new Rect(25, 100, 100, 20), "Custom Colors"))
+            { 
+                if (customColorsWindow)
+                {
+                    customColorsWindow = false;
+                } else
+                {
+                    customColorsWindow = true;
+                }
+            }
+
+            if (customColorsWindow)
+            {
+                GUI.color = Color.yellow;
+                GUI.Window(42069, new Rect(10, 125, 300, 125), CustomColorsWindow, "Custom Colors");
+            }
         }
 
         internal static void InfoLog(string message)
@@ -54,12 +89,38 @@ namespace CustomColors
 
         public class Patches
         {
-            [HarmonyPatch(typeof(SlimeController), nameof(SlimeController.UpdateSim))]
+            [HarmonyPatch(typeof(PlayerBody), nameof(PlayerBody.UpdateSim))]
             [HarmonyPostfix]
-            public static void ColorPatch(SlimeController __instance)
+            public static void ColorPatch(ref IPlayerIdHolder ___idHolder)
             {
-                // Plugin.InfoLog("Patched player!");
-                __instance.GetPlayerSprite().material.SetColor("_ShadowColor", new UnityEngine.Color(Plugin.boplRed.Value / 255, Plugin.boplGreen.Value / 255, Plugin.boplBlue.Value / 255));
+                foreach (SlimeController sc in GetSlimeControllers()) {
+                    if (sc.GetPlayerId() == localPlayerId && sc != null)
+                    {
+                        Plugin.print("found a match!");
+                        sc.GetPlayerSprite().material.SetColor("_ShadowColor", new UnityEngine.Color(Plugin.red / 255, Plugin.green / 255, Plugin.blue / 255));
+                    }
+                }
+            }
+            [HarmonyPatch(typeof(Player), nameof(Player.UpdateFRAMEDependentInputs))]
+            [HarmonyPrefix]
+            public static void PlayerPatch(Player __instance)
+            {
+                if (__instance.IsLocalPlayer)
+                {
+                    localPlayerId = __instance.Id;
+                }
+            }
+
+            // thank you spotch <3
+            public static GameSessionHandler GetGameSessionHandler()
+            {
+                FieldInfo selfRefField = typeof(GameSessionHandler).GetField("selfRef", BindingFlags.Static | BindingFlags.NonPublic);
+                return selfRefField.GetValue(null) as GameSessionHandler;
+            }
+            public static SlimeController[] GetSlimeControllers()
+            {
+                FieldInfo slimeControllersField = typeof(GameSessionHandler).GetField("slimeControllers", BindingFlags.Instance | BindingFlags.NonPublic);
+                return slimeControllersField.GetValue(GetGameSessionHandler()) as SlimeController[];
             }
         }
     }
