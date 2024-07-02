@@ -15,6 +15,6 @@ These are all of the mods I have made and released in order.
 6. [Beeg Bopl](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/beegbopl1.0.0)
 7. [Slippery Arrow](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/slipperyarrow1.0.0)
 8. [Wonky Engine](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/wonkyengine1.0.0)
-9. [Custom Colors](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/customcolors1.0.0)
+9. [Custom Colors](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/customcolors2.0.0)
 10. [Deadly Roll](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/deadlyroll1.0.0)
 11. [Bumpscosity Mod](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/bumpscositymod1.0.0)
