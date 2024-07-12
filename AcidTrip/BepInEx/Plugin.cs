@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using BoplFixedMath;
 using HarmonyLib;
 using System;
@@ -34,6 +34,7 @@ namespace AcidTrip
         [HarmonyPostfix]
         public static void VertPostfix(Player __instance, ref Fix __result)
         {
+            if (!__instance.IsLocalPlayer) return;
             Plugin.print("Patched!");
             __result = -__instance.Inputs.InputVector.y;
         }
@@ -41,14 +42,16 @@ namespace AcidTrip
         [HarmonyPostfix]
         public static void Vec2Postfix(Player __instance, ref Vec2 __result)
         {
+            if (!__instance.IsLocalPlayer) return;
             Vec2 newVec = new Vec2(-__instance.Inputs.InputVector.x, -__instance.Inputs.InputVector.y);
             Plugin.print("Patched!");
             __result = newVec;
         }
         [HarmonyPatch(typeof(Player), nameof(Player.AbilityButtonIsDown))]
         [HarmonyPrefix]
-        public static void AbilityPrefix(ref int __0)
+        public static void AbilityPrefix(ref int __0, Player __instance)
         {
+            if (!__instance.IsLocalPlayer) return;
             if (__0 == 0)
             {
                 __0 = 2;
