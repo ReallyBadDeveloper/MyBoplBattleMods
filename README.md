@@ -3,7 +3,7 @@
 ![GitHub Release](https://img.shields.io/github/v/release/ReallyBadDeveloper/MyBoplBattleMods?style=plastic&label=latest%20release)
 ![Mod count](https://img.shields.io/badge/mod_count-13-purple)
 
-These are all my mods for [Bopl Battle](https://store.steampowered.com/app/1686940/Bopl_Battle/). Most of these can be accessed on the [official Discord server](https://discord.gg/official-bopl-battle-modding-comunity-1175164882388275310).
+These are all my mods for [Bopl Battle](https://store.steampowered.com/app/1686940/Bopl_Battle/). Most of these can be accessed on the [official Discord server](https://discord.gg/official-bopl-battle-modding-comunity-1175164882388275310) or on [Thunderstore](https://thunderstore.io/c/bopl-battle/p/ReallyBadDeveloper/).
 
 ## Current List of Mods
 These are all of the mods I have made and released in order.
