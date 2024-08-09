@@ -20,3 +20,4 @@ These are all of the mods I have made and released in order.
 11. [Bumpscosity Mod](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/bumpscositymod1.0.0)
 12. [Acid Trip](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/acidtrip1.0.0)
 13. [Game Stats](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/gamestats1.0.0)
+14. [No Platform Shrink](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/noplatformshrink1.0.0)
