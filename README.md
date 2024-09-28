@@ -1,7 +1,7 @@
 # My Bopl Battle Mods
 ![GitHub all releases](https://img.shields.io/github/downloads/ReallyBadDeveloper/MyBoplBattleMods/total?logo=github)
 ![GitHub Release](https://img.shields.io/github/v/release/ReallyBadDeveloper/MyBoplBattleMods?style=plastic&label=latest%20release)
-![Mod count](https://img.shields.io/badge/mod_count-13-purple)
+![Mod count](https://img.shields.io/badge/mod_count-16-purple)
 
 These are all my mods for [Bopl Battle](https://store.steampowered.com/app/1686940/Bopl_Battle/). Most of these can be accessed on the [official Discord server](https://discord.gg/official-bopl-battle-modding-comunity-1175164882388275310) or on [Thunderstore](https://thunderstore.io/c/bopl-battle/p/ReallyBadDeveloper/).
 
@@ -21,3 +21,5 @@ These are all of the mods I have made and released in order.
 12. [Acid Trip](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/acidtrip1.0.0)
 13. [Game Stats](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/gamestats1.0.0)
 14. [No Platform Shrink](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/noplatformshrink1.0.0)
+15. [Hidden Players](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/hiddenplayers1.0.0)
+16. [More Lives](https://github.com/ReallyBadDeveloper/MyBoplBattleMods/releases/tag/morelives1.0.0)
