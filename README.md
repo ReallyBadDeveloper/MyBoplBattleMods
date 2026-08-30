@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repository is unmaintained and is very likely likely not up to date.
+> For an updated list, check out my mods on [Thunderstore](https://thunderstore.io/c/bopl-battle/p/ReallyBadDeveloper/).
+
 # My Bopl Battle Mods
 ![GitHub all releases](https://img.shields.io/github/downloads/ReallyBadDeveloper/MyBoplBattleMods/total?logo=github)
 ![GitHub Release](https://img.shields.io/github/v/release/ReallyBadDeveloper/MyBoplBattleMods?label=latest%20release)
